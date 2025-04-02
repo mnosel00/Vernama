@@ -26,6 +26,12 @@ string decryptedText = Encoding.UTF8.GetString(decrypted);
 Console.WriteLine("Oryginalny tekst: " + text);
 Console.WriteLine("Zaszyfrowany (Base64): " + encryptedText);
 Console.WriteLine("Odszyfrowany tekst: " + decryptedText);
+Console.WriteLine();
+Console.WriteLine(BytesToBinaryString(encrypted));
+Console.WriteLine();
+Console.WriteLine(BytesToBinaryString(bytes));
+Console.WriteLine();
+Console.WriteLine(BytesToBinaryString(decrypted));
 
 
 
