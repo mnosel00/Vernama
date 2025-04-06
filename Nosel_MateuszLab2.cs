@@ -32,6 +32,7 @@ Console.WriteLine(BytesToBinaryString(decrypted));
 // Testy
 TestKeyLength(text);
 TestPrimeNumbers();
+TestVernamXor();
 
 static string BytesToBinaryString(byte[] data)
 {
@@ -104,5 +105,24 @@ static void TestPrimeNumbers()
         {
             Console.WriteLine($"TestPrimeNumbers failed for prime {prime}.");
         }
+    }
+}
+
+static void TestVernamXor()
+{
+    byte[] evenBytes = { 0b10101010, 0b01010101 }; 
+    byte[] oddBytes = { 0b01010101, 0b10101010 };
+    byte[] key = { 0b11111111, 0b11111111 }; 
+
+    byte[] evenResult = Vernam(evenBytes, key);
+    byte[] oddResult = Vernam(oddBytes, key);
+
+    if (evenResult[0] % 2 == 0 && evenResult[1] % 2 == 0 && oddResult[0] % 2 != 0 && oddResult[1] % 2 != 0)
+    {
+        Console.WriteLine("Test passed.");
+    }
+    else
+    {
+        Console.WriteLine("Test failed.");
     }
 }
